@@ -3,11 +3,13 @@ package com.example.mainactivity.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 
@@ -35,6 +37,25 @@ public class DBController extends SQLiteOpenHelper {
         basisdata.insert("teman", null, nilai);
         basisdata.close();
 
+    }
+
+    public ArrayList<HashMap<String,String>> getAllTeman() {
+        ArrayList<HashMap<String,String>> daftarTeman;
+        daftarTeman = new ArrayList<HashMap<String, String>>();
+        String selectQuery = "Select * from teman";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if(cursor.moveToFirst()) {
+            do {
+                HashMap<String, String> map = new HashMap<>();
+                map.put("id", cursor.getString(0));
+                map.put("nama",cursor.getString(1));
+                map.put("telpon",cursor.getString(2));
+                daftarTeman.add(map);
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        return daftarTeman;
     }
 }
 

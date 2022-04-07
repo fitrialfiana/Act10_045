@@ -1,5 +1,6 @@
 package com.example.mainactivity.adapter;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,11 +37,16 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
         nm = listData.get(position).getNama();
         tlp = listData.get(position).getTelpon();
 
+        holder.namaTxt.setTextColor(Color.BLUE);
+        holder.namaTxt.setTextSize(29);
+        holder.namaTxt.setText(nm);
+        holder.telponTxt.setText(tlp);
+
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return (listData != null)?listData.size() : 0;
     }
 
     public class TemanViewHolder extends RecyclerView.ViewHolder {
