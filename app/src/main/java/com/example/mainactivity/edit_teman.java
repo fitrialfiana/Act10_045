@@ -16,7 +16,7 @@ import java.util.HashMap;
 public class edit_teman extends AppCompatActivity {
     TextInputEditText Nama, Telepon;
     Button Save;
-    String nma, tlp, id;
+    String nm, tlp, id;
     DBController controller = new DBController(this);
 
 
@@ -30,11 +30,11 @@ public class edit_teman extends AppCompatActivity {
         Save = findViewById(R.id.simpanBtn);
 
         id = getIntent().getStringExtra("id");
-        nma = getIntent().getStringExtra("nama");
+        nm = getIntent().getStringExtra("nama");
         tlp = getIntent().getStringExtra("telpon");
 
         setTitle("Edit Data");
-        Nama.setText(nma);
+        Nama.setText(nm);
         Telepon.setText(tlp);
 
         Save.setOnClickListener(new View.OnClickListener() {
@@ -43,11 +43,11 @@ public class edit_teman extends AppCompatActivity {
                 if(Nama.getText().toString().equals("") || Telepon.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "Mohon isi data terlebih dahulu!!!", Toast.LENGTH_LONG).show();
                 }else{
-                    nma = Nama.getText().toString();
+                    nm = Nama.getText().toString();
                     tlp = Telepon.getText().toString();
                     HashMap<String, String> values = new HashMap<>();
                     values.put("id", id);
-                    values.put("nama", nma);
+                    values.put("nama", nm);
                     values.put("telpon", tlp);
                     controller.UpdateData(values);
                     callHome();

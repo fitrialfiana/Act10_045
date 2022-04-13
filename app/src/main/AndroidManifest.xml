@@ -11,12 +11,15 @@
         android:theme="@style/Theme.MainActivity">
         <activity
             android:name=".edit_teman"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".TemanBaru"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

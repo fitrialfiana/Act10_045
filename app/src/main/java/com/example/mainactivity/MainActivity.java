@@ -1,11 +1,13 @@
 package com.example.mainactivity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.view.View;
 
 import com.example.mainactivity.adapter.TemanAdapter;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
         }));
 
     }
+
 
     public void BacaData()
     {

@@ -18,6 +18,9 @@ import com.example.mainactivity.MainActivity;
 import com.example.mainactivity.R;
 import com.example.mainactivity.database.DBController;
 import com.example.mainactivity.database.Teman;
+import com.example.mainactivity.edit_teman;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -109,4 +112,6 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
         }
 
     }
+
+
 }

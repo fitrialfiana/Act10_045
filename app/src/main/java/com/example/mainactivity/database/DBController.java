@@ -52,7 +52,6 @@ public class DBController extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         db.delete("teman", "id=?", new String[]{queryValues.get("id")});
         db.close();
-
     }
 
 
