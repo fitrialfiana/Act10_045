@@ -31,7 +31,7 @@ public class edit_teman extends AppCompatActivity {
 
         id = getIntent().getStringExtra("id");
         nm = getIntent().getStringExtra("nama");
-        tlp = getIntent().getStringExtra("telpon");
+        tlp = getIntent().getStringExtra("telepon");
 
         setTitle("Edit Data");
         Nama.setText(nm);
@@ -48,7 +48,7 @@ public class edit_teman extends AppCompatActivity {
                     HashMap<String, String> values = new HashMap<>();
                     values.put("id", id);
                     values.put("nama", nm);
-                    values.put("telpon", tlp);
+                    values.put("telepon", tlp);
                     controller.UpdateData(values);
                     callHome();
                 }
