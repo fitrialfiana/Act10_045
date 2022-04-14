@@ -11,7 +11,6 @@
         android:theme="@style/Theme.MainActivity">
         <activity
             android:name=".edit_teman"
-            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".TemanBaru"
