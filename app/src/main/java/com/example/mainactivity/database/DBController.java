@@ -33,7 +33,7 @@ public class DBController extends SQLiteOpenHelper {
         SQLiteDatabase basisdata = this.getWritableDatabase();
         ContentValues nilai = new ContentValues();
         nilai.put("nama", queryValues.get("nama"));
-        nilai.put("telpon", queryValues.get("telpon"));
+        nilai.put("telepon", queryValues.get("telepon"));
         basisdata.insert("teman", null, nilai);
         basisdata.close();
 
