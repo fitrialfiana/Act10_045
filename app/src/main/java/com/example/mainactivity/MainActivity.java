@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, TambahTeman.class);
                 startActivity(intent);
             }

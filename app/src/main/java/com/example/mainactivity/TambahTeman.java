@@ -45,7 +45,7 @@ public class TambahTeman extends AppCompatActivity {
 
         simpanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 SimpanData();
             }
         });
