@@ -1,13 +1,11 @@
 package com.example.mainactivity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -19,7 +17,6 @@ import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.mainactivity.adapter.TemanAdapter;
-import com.example.mainactivity.database.DBController;
 import com.example.mainactivity.database.Teman;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -28,18 +25,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static android.content.ContentValues.TAG;
 
 
 public class MainActivity extends AppCompatActivity {
+    private FloatingActionButton fab;
     private RecyclerView recyclerView;
     private TemanAdapter adapter;
     private ArrayList<Teman> temanArrayList = new ArrayList<>();
-    //DBController controller = new DBController(this);
-    //String id, nm, tlp;
-    private FloatingActionButton fab;
+
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static String url_select = "http://10.0.2.2/umyTI/bacateman.php";

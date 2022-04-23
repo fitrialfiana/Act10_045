@@ -6,10 +6,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.util.Log;
-import android.widget.Button;
 import android.view.View;
 import android.widget.Toast;
-import android.widget.EditText;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -69,8 +67,8 @@ public class TambahTeman extends AppCompatActivity {
                 public void onResponse(String response) {
                     Log.d(TAG, "Response : " + response.toString());
                     try {
-                        JSONObject jobj = new JSONObject(response);
-                        success = jobj.getInt(TAG_SUCCES);
+                        JSONObject jObj = new JSONObject(response);
+                        success = jObj.getInt(TAG_SUCCES);
                         if (success == 1) {
                             Toast.makeText(TambahTeman.this, "Sukses simpan data", Toast.LENGTH_SHORT).show();
                         } else {
@@ -78,8 +76,7 @@ public class TambahTeman extends AppCompatActivity {
                         }
                     } catch (JSONException e) {
                         e.printStackTrace();
-                    }
-                }
+                    }}
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
@@ -95,7 +92,6 @@ public class TambahTeman extends AppCompatActivity {
 
                     return params;
                 }
-
             };
             requestQueue.add(strReq);
         }
