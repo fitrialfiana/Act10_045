@@ -46,7 +46,7 @@ public class TambahTeman extends AppCompatActivity {
 
         simpanBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 SimpanData();
                 Intent inten = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(inten);
@@ -81,7 +81,7 @@ public class TambahTeman extends AppCompatActivity {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }}
-            }, new Response.ErrorListener() {
+            },new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
                     Log.e(TAG,"Error : "+error.getMessage());

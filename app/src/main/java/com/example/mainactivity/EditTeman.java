@@ -58,7 +58,7 @@ public class EditTeman extends AppCompatActivity {
 
         editBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 EditData();
             }
         });

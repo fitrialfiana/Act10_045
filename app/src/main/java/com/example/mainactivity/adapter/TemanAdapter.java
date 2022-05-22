@@ -65,8 +65,8 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
 
         holder.cardku.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
-            public boolean onLongClick(View view) {
-                PopupMenu pm = new PopupMenu(view.getContext(), view);
+            public boolean onLongClick(View v) {
+                PopupMenu pm = new PopupMenu(v.getContext(), v);
                 pm.inflate(R.menu.popup1);
                 pm.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
@@ -79,12 +79,12 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
                                 bendel.putString("kunci2", nm);
                                 bendel.putString("kunci3", tlp);
 
-                                Intent inten = new Intent(view.getContext(), EditTeman.class);
+                                Intent inten = new Intent(v.getContext(), EditTeman.class);
                                 inten.putExtras(bendel);
-                                view.getContext().startActivity(inten);
+                                v.getContext().startActivity(inten);
                                 break;
                             case R.id.hapus:
-                                AlertDialog.Builder alertdb = new AlertDialog.Builder(view.getContext());
+                                AlertDialog.Builder alertdb = new AlertDialog.Builder(v.getContext());
                                 alertdb.setTitle("Yakin " +nm+ " akan dihapus?");
                                 alertdb.setMessage("Tekan Ya untuk menghapus");
                                 alertdb.setCancelable(false);
@@ -92,9 +92,9 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int which) {
                                         HapusData(id);
-                                        Toast.makeText(view.getContext(), "Data " +id+ " telah dihapus", Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(view.getContext(), MainActivity.class);
-                                        view.getContext().startActivity(intent);
+                                        Toast.makeText(v.getContext(), "Data " +id+ " telah dihapus", Toast.LENGTH_LONG).show();
+                                        Intent intent = new Intent(v.getContext(), MainActivity.class);
+                                        v.getContext().startActivity(intent);
                                     }
                                 });
 
@@ -118,10 +118,10 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
     }
 
     private void HapusData(final String idx) {
-     String url_update = "http://10.0.2.2/umyTI/deletetm.php";
-     final String TAG = MainActivity.class.getSimpleName();
-     final String TAG_SUCCES = "success";
-     final int[] sukses = new int[1];
+        String url_update = "http://10.0.2.2/umyTI/deletetm.php";
+        final String TAG = MainActivity.class.getSimpleName();
+        final String TAG_SUCCES = "success";
+        final int[] sukses = new int[1];
 
         StringRequest stringReq = new StringRequest(Request.Method.POST, url_update, new Response.Listener<String>() {
             @Override
@@ -163,9 +163,9 @@ public class TemanAdapter extends RecyclerView.Adapter<TemanAdapter.TemanViewHol
         private TextView namaTxt, telponTxt;
         public TemanViewHolder(View view) {
             super(view);
-            cardku =(CardView) view.findViewById(R.id.kartuku);
-            namaTxt =(TextView) view.findViewById(R.id.textNama);
-            telponTxt =(TextView) view.findViewById(R.id.textTelpon);
+            cardku =(CardView) view.findViewById(R.id.cardku);
+            namaTxt =(TextView) view.findViewById(R.id.txtNama);
+            telponTxt =(TextView) view.findViewById(R.id.txtTelpon);
         }
     }
 }
