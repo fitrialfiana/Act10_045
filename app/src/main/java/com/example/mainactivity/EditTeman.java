@@ -73,7 +73,6 @@ public class EditTeman extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Log.d(TAG, "Respon: " + response.toString());
-
                 try {
                     JSONObject jObj = new JSONObject(response);
                     sukses = jObj.getInt(TAG_SUCCES);
@@ -92,8 +91,7 @@ public class EditTeman extends AppCompatActivity {
                 Log.e(TAG, "Error : " + error.getMessage());
                 Toast.makeText(EditTeman.this, "Gagal Edit data", Toast.LENGTH_SHORT).show();
             }
-        })
-        {
+        }){
             @Override
             protected Map<String,String> getParams(){
                 Map<String,String> params = new HashMap<>();

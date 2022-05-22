@@ -59,48 +59,47 @@ public class MainActivity extends AppCompatActivity {
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, TambahTeman.class);
                 startActivity(intent);
             }
         });
     }
+        public void BacaData()
+        {
+            temanArrayList.clear();
+            RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
+            JsonArrayRequest jArr = new JsonArrayRequest(url_select, new Response.Listener<JSONArray>() {
+                @Override
+                public void onResponse(JSONArray response) {
+                    Log.d(TAG, response.toString());
 
-    public void BacaData()
-    {
-        temanArrayList.clear();
-        RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
-        JsonArrayRequest jArr = new JsonArrayRequest(url_select, new Response.Listener<JSONArray>() {
-            @Override
-            public void onResponse(JSONArray response) {
-                Log.d(TAG, response.toString());
+                    //parsing json
+                    for (int i = 0; i < response.length(); i++) {
+                        try {
+                            JSONObject obj = response.getJSONObject(i);
 
-                //parsing json
-                for (int i = 0; i < response.length(); i++) {
-                    try {
-                        JSONObject obj = response.getJSONObject(i);
+                            Teman item = new Teman();
+                            item.setId(obj.getString(TAG_ID));
+                            item.setNama(obj.getString(TAG_NAMA));
+                            item.setTelpon(obj.getString(TAG_TELPON));
 
-                        Teman item = new Teman();
-                        item.setId(obj.getString(TAG_ID));
-                        item.setNama(obj.getString(TAG_NAMA));
-                        item.setTelpon(obj.getString(TAG_TELPON));
-
-                        //menambah item ke array
-                        temanArrayList.add(item);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+                            //menambah item ke array
+                            temanArrayList.add(item);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
+                    adapter.notifyDataSetChanged();
                 }
-                adapter.notifyDataSetChanged();
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                VolleyLog.d(TAG, "Error: " + error.getMessage());
-                error.printStackTrace();
-                Toast.makeText(MainActivity.this,"gagal", Toast.LENGTH_SHORT).show();
-            }
-        });
-        requestQueue.add(jArr);
-    }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.d(TAG, "Error: " + error.getMessage());
+                    error.printStackTrace();
+                    Toast.makeText(MainActivity.this,"gagal", Toast.LENGTH_SHORT).show();
+                }
+            });
+            requestQueue.add(jArr);
+        }
 }
