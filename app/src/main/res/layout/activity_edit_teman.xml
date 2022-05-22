@@ -4,13 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TambahTeman">
+    tools:context=".EditTeman">
 
-    <EditText
-        android:id="@+id/edNama"
+    <TextView
+        android:id="@+id/textId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="156dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editNm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
         android:ems="10"
         android:hint="Nama"
         android:inputType="textPersonName"
@@ -20,26 +31,27 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edTelpon"
+        android:id="@+id/editTlp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="44dp"
         android:ems="10"
         android:hint="Telpon"
         android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="@id/edNama"
+        app:layout_constraintEnd_toEndOf="@id/editNm"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@id/edNama"
-        app:layout_constraintTop_toBottomOf="@id/edNama" />
+        app:layout_constraintStart_toStartOf="@id/editNm"
+        app:layout_constraintTop_toBottomOf="@id/editNm" />
 
     <Button
-        android:id="@+id/btnSimpan"
+        android:id="@+id/buttonEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="152dp"
-        android:text="Simpan"
+        android:layout_marginBottom="220dp"
+        android:text="Update"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/edTelpon"
-        app:layout_constraintStart_toStartOf="@id/edTelpon"
-        app:layout_constraintTop_toBottomOf="@id/edTelpon" />
+        app:layout_constraintEnd_toEndOf="@id/editTlp"
+        app:layout_constraintStart_toStartOf="@id/editTlp"
+        app:layout_constraintTop_toBottomOf="@id/editTlp"
+        app:layout_constraintVertical_bias="0.649" />
 </androidx.constraintlayout.widget.ConstraintLayout>
