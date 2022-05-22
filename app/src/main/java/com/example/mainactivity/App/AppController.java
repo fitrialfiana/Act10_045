@@ -2,14 +2,16 @@ package com.example.mainactivity.App;
 
 import android.app.Application;
 import android.text.TextUtils;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
-public class AppController {
+public class AppController extends Application{
     public static final String TAG = AppController.class.getSimpleName();
     private RequestQueue mRequestQueue;
     private static AppController mInstance;
+
 
     @Override
     public void onCreate()
@@ -33,7 +35,7 @@ public class AppController {
         req.setTag(TAG);
         getmRequestQueue().add(req);
     }
-    public void cancelPendingRequest(object tag)
+    public void cancelPendingRequest(Object tag)
     {
         if (mRequestQueue != null)
         {
